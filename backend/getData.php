@@ -1,41 +1,83 @@
 <?
 
-    $login = htmlspecialchars($_POST['login']);
-    $password = md5(htmlspecialchars($_POST['password']));
+    $request = htmlspecialchars($_POST['request']);
+
+    $responce = array('text' => '', 'error' => 0);
+
+    if(empty($request)) {
+
+        $responce['text'] = 'Сделайте корректный запрос';
+        $responce['error'] = 1;
+        exit(json_encode($responce));
+
+    }
 
     include('services/config.php');
 
-    if ($result = mysqli_query($link, "SELECT `id` FROM `users` WHERE login = '{$login}'")) {
+    session_start();
+
+    if($request == 'getPersonalData'){
+
+        if(empty($_SESSION['login'])){
+
+            $responce['text'] = 'Войдите в свой аккаунт.';
+            $responce['error'] = 20;
+            exit(json_encode($responce));
+
+        }
+
+        $result = mysqli_query($link, "SELECT `id`, `login`, `name`, `surname`, `mname`, `email`, `number`, `pers`, `count`, `contacts`, `birthDay` FROM `users` WHERE login = '{$_SESSION['login']}'")
+
         $row = mysqli_fetch_row($result);
-        if(empty($row)){
 
-            exit('Неверные данные');
+        $responce = array_merge($row, $responce);
+
+        exit(json_encode($responce);
+
+    } else
+    if($request == 'getPersonalSpent'){
+
+        if(empty($_SESSION['login'])){
+
+            $responce['text'] = 'Войдите в свой аккаунт.';
+            $responce['error'] = 21;
+            exit(json_encode($responce));
+
+        }
+
+        $result = mysqli_query($link, "SELECT * FROM `bill` WHERE userLogin = '{$_SESSION['login']}'")
+
+        $row = mysqli_fetch_row($result);
+
+        $responce = array_merge($row, $responce);
+
+        exit(json_encode($responce);
+
+    } else
+    if($request == 'getUserData'){
+
+        $userId = htmlspecialchars($_POST['id']);
+
+        if(empty($userId)){
+
+            $responce['text'] = 'Некорретный запрос.';
+            $responce['error'] = 22;
+            exit(json_encode($responce));
 
         }
 
-        if($result = mysqli_query($link, "SELECT `password`, `canLogin`, `login` FROM `users` WHERE login = '{$login}'")){
+        $result = mysqli_query($link, "SELECT `id`, `name`, `surname`, `mname`, `email`, `number`, `contacts` FROM `users` WHERE id = '{$userId}'")
 
-            $row = mysqli_fetch_assoc($result);
+        $row = mysqli_fetch_row($result);
 
-            if(!$row['canLogin']){
+        $responce = array_merge($row, $responce);
 
-                exit('Подтвердите почту!');
+        exit(json_encode($responce);
 
-            }
-
-            if($row['password'] == $password){
-                session_start();
-                $_SESSION['login'] = $row['login'];
-                echo 'Вы залогинились!';
-            } else {
-                echo 'Неверные данные!';
-            }
-
-        } else {
-
-            exit('Ошибка. Попробуйте позже!');
-
-        }
     }
+
+
+
+
 
 ?>
