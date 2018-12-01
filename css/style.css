@@ -1,0 +1,73 @@
+@font-face {
+	font-family: 'Acrom';
+	src: url('../fonts/Acrom-Regular.eot');
+	src: local('../fonts/Acrom Regular'), local('fonts/Acrom-Regular'),
+		url('../fonts/Acrom-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Acrom-Regular.woff') format('woff'),
+		url('../fonts/Acrom-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+    background: linear-gradient(to bottom, #FAD961, #F76B1C);
+    font-family: acrom;
+}
+
+.logo{
+	padding-top: 70%;
+	text-align: center;
+}
+.logo img{
+	margin-bottom: 30px;
+	height: 230px;
+}
+.logo p{
+	font-size: 2rem;
+	color: white;
+}
+
+.data{
+	text-align: center;
+}
+
+.data-input{
+	background-image: url('../img/input-button.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 0;
+	height: 130px;
+	width: 550px;
+	margin: 0 auto;
+}
+.data-input input{
+	margin-top: 16px;
+	height: 70px;
+	width: 400px;
+	font-size: 2rem;
+	border: none;
+	outline: none;
+}
+.data-input input:focus{
+	border: none;
+}
+
+.data-submit{
+	background-image: url('../img/submit-button.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 0;
+	height: 117px;
+	width: 300px;
+	margin: 0 auto;
+}
+
+.data-submit input{ 
+	margin-top: 10px;
+	height: 80px;
+	width: 230px;
+	background: none;
+	font-size: 2rem;
+	border: none;
+	outline: none;
+}
