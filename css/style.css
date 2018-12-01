@@ -238,10 +238,13 @@ body {
 }
 
 .enter input{ 
-	margin-top: 10px;
 	margin: 0 auto;
+	margin-top: 10px;
 	background: none;
-	font-size: 2rem;
+	font-size: 1.6rem;
+	color: white;
 	border: none;
 	outline: none;
+	padding-left: 130px; 
+	text-align: center;
 }
