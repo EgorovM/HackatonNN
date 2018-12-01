@@ -88,16 +88,18 @@ nav {
 	width: 100px;
 }
 
-.nav-left img{
+.nav-left i{
 	position: absolute;
-	height: 60px;
+	font-size: 6rem;
+	color: white;
 	top: 72px;
 	left: 75px;
 }
 
-.nav-right img{
+.nav-right i{
 	position: absolute;
-	height: 80px;
+	font-size: 6rem;
+	color: white;
 	top:58px;
 	right: 75px;
 }
@@ -236,8 +238,8 @@ body {
 }
 
 .enter input{ 
-	margin-top: 5px;
-	padding-left: 116px;
+	margin-top: 10px;
+	margin: 0 auto;
 	background: none;
 	font-size: 2rem;
 	border: none;
