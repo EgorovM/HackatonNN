@@ -96,10 +96,9 @@ nav {
 	left: 75px;
 }
 
-.nav-right i{
+.nav-right img{
 	position: absolute;
-	font-size: 6rem;
-	color: white;
+	height: 90px;
 	top:58px;
 	right: 75px;
 }
