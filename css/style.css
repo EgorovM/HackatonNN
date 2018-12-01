@@ -88,9 +88,9 @@ nav {
 	width: 100px;
 }
 
-.nav-left i{
+.nav-left img{
 	position: absolute;
-	font-size: 6rem;
+	height: 60px;
 	color: white;
 	top: 72px;
 	left: 75px;
