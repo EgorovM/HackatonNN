@@ -87,24 +87,33 @@
 						data = JSON.parse(e);
 						localStorage.setItem('PHPSESSID', data['cookie']);
 						console.log(data['text']);
-						$.ajax({
-							url: 'http://9142767578.myjino.ru/backend/getData.php',
-							type: "POST",
-							data: {
+						if(data['error'] == 0){
 
-								'request' : 'getPersonalSpent',
-								'COOKIES' : localStorage.getItem('PHPSESSID')
+							$.ajax({
+								url: 'http://9142767578.myjino.ru/backend/getData.php',
+								type: "POST",
+								data: {
 
-							},
-							success: function(e){
+									'request' : 'getPersonalSpent',
+									'COOKIES' : localStorage.getItem('PHPSESSID')
 
-								data = JSON.parse(e);
-								localStorage.setItem('PHPSESSID', data['cookie']);
-								localStorage.setItem('myData', JSON.stringify(data));
-								console.log(data['text']);
+								},
+								success: function(e){
 
-							}
-						});
+									data = JSON.parse(e);
+									localStorage.setItem('PHPSESSID', data['cookie']);
+									localStorage.setItem('myData', JSON.stringify(data));
+									console.log(data['text']);
+
+									if(data['error'] == 0){
+										
+										$(location).attr('href','index.html');
+
+									}
+								}
+							});
+
+						}
 
 					}
 				});
