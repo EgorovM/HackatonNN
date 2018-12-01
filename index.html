@@ -1,0 +1,38 @@
+
+<!doctype html>
+<html class="fixed">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+
+    <script src="js/jqm.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: 'http://172.20.10.3:8000/',
+            type: "POST",
+            dataType: "json",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'HTTP_X_CSRFTOKKEN' : 'csrf'
+            },
+            data: {
+
+                login: 'hello'
+
+            },
+            success: function(e){
+                alert(2);
+            },
+            error:  function(e){
+                alert(1);
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
