@@ -71,3 +71,175 @@ body {
 	border: none;
 	outline: none;
 }
+
+nav {
+	display: flex; 
+	justify-content: space-between;
+}
+
+.nav-logo img{
+	height: 110px;
+	margin-top: 40px;
+}
+.nav-left{
+	width: 100px;
+}
+.nav-right{
+	width: 100px;
+}
+
+.nav-left img{
+	position: absolute;
+	height: 60px;
+	top: 72px;
+	left: 75px;
+}
+
+.nav-right img{
+	position: absolute;
+	height: 80px;
+	top:58px;
+	right: 75px;
+}
+
+.statistic{
+	background-image: url("../img/big-board.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 0;
+	margin: 0 auto;
+}
+
+.statistic h3{
+	text-align: center;
+}
+.ct-chart{
+	height: 350px;
+	text-align: center;
+}
+
+.day{
+	display: flex;
+}
+.day h2{
+	font-size: 4rem;
+}
+
+.night{
+	display: flex;
+}
+.night h2{
+	font-size: 4rem;
+}
+
+.price_information{
+	width: 700px;
+	margin:0 auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+.new_cart{
+	background-image: url("../img/news.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 0;
+	margin: 0 auto;
+	width: 700px;
+}
+
+.filters{
+	display: -webkit-inline-flex;
+	display: inline-flex;
+}
+
+.filters p{
+	background-color: #F76B1C;
+	border-radius: 30%;
+	width: 110px;
+	text-align: center;
+}
+
+.new{
+	padding-left: 60px;
+	padding-top: 5px;
+}
+
+footer{
+	background-image: url("../img/footer.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 0;
+	margin: 0 auto;
+	height: 257px;
+}
+
+.footer-menu{
+	display: flex;
+	justify-content: space-around;
+	width: 1000px;
+	margin:0 auto;
+	padding-top: 80px;
+}
+
+.footer-menu img{
+	height: 60px;
+}
+
+.footer-card{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.footer-card span{
+	font-size: 1.3rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+
+body {
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+}
+
+.found{
+	
+}
+
+.price_information h2{
+	color: #F76B1C;
+}
+
+.enter{
+	background-image: url('../img/enter.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 0;
+	width: 500px;
+	height: 60px;
+	margin: 0 auto;
+}
+
+.enter input{ 
+	margin-top: 5px;
+	padding-left: 116px;
+	background: none;
+	font-size: 2rem;
+	border: none;
+	outline: none;
+}
