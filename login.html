@@ -55,7 +55,7 @@
 			<div class = "data-input">
 				<input id="pass" type="password" placeholder="Пароль">
 			</div>
-			
+
 			<div class = "data-submit">
 				<input type="submit" value ="Далее">
 			</div>
@@ -100,6 +100,7 @@
 
 								data = JSON.parse(e);
 								localStorage.setItem('PHPSESSID', data['cookie']);
+								localStorage.setItem('myData', JSON.stringify(data));
 								console.log(data['text']);
 
 							}

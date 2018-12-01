@@ -42,7 +42,7 @@
 		    			<img src = "img/notification.png" alt = "">
 		    		</div>
 		    	</nav>
-		        
+
 		    </header>
 
 		    <br>
@@ -144,10 +144,31 @@
 		</div>
 
 		<script>
+
+			data = [];
+			data['series'] = [];
+			data['labels'] = [];
+			data['totalM'] = 0;
+			data['totalN'] = 0;
+			data['totalS'] = 0;
+			localData = JSON.parse(localStorage.getItem('myData'));
+
+			for(var i=0; i<8; i++){
+
+				data['series'][i] = (parseInt(localData[i]['kwN'])+parseInt(localData[i]['kwM']));
+				data['labels'][i] = localData[i]['date'];
+				data['totalM'] += parseInt(localData[i]['kwM']);
+				data['totalN'] += parseInt(localData[i]['kwN']);
+				data['totalS'] += parseInt(localData[i]['totalPrice']);
+
+			}
+
+			data['totalS'] = data['totalS'] / 100;
+
 			new Chartist.Line('.ct-chart', {
-			  labels: [1, 2, 3, 4, 5, 6, 7, 8],
+			  labels: data['labels'],
 			  series: [
-			    [5, 8, 7, 8, 5, 3, 5, 4]
+			    data['series']
 			  ]
 			}, {
 			  low: 0,

@@ -1,10 +1,10 @@
 <?
 
-    include('services/config.php');
 
     $request = htmlspecialchars($_POST['request']);
 
     $responce = array('text' => '', 'error' => 0);
+    include('services/config.php');
 
     if(empty($request)) {
 
