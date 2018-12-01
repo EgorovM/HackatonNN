@@ -1,5 +1,7 @@
 <?
 
+    include('services/config.php');
+
     $request = htmlspecialchars($_POST['request']);
 
     $responce = array('text' => '', 'error' => 0);
@@ -12,10 +14,6 @@
 
     }
 
-    include('services/config.php');
-
-    session_start();
-
     if($request == 'getPersonalData'){
 
         if(empty($_SESSION['login'])){
@@ -26,13 +24,13 @@
 
         }
 
-        $result = mysqli_query($link, "SELECT `id`, `login`, `name`, `surname`, `mname`, `email`, `number`, `pers`, `count`, `contacts`, `birthDay` FROM `users` WHERE login = '{$_SESSION['login']}'")
+        $result = mysqli_query($link, "SELECT `id`, `login`, `name`, `surname`, `mname`, `email`, `number`, `pers`, `count`, `contacts`, `birthDay` FROM `users` WHERE login = '{$_SESSION['login']}'");
 
-        $row = mysqli_fetch_row($result);
+        $row = mysqli_fetch_assoc($result);
 
         $responce = array_merge($row, $responce);
 
-        exit(json_encode($responce);
+        exit(json_encode($responce));
 
     } else
     if($request == 'getPersonalSpent'){
@@ -45,13 +43,19 @@
 
         }
 
-        $result = mysqli_query($link, "SELECT * FROM `bill` WHERE userLogin = '{$_SESSION['login']}'")
+        $result = mysqli_query($link, "SELECT * FROM `bill` WHERE userLogin = '{$_SESSION['login']}'");
 
-        $row = mysqli_fetch_row($result);
+        $i = 0;
 
-        $responce = array_merge($row, $responce);
+        while($row = mysqli_fetch_assoc($result)){
 
-        exit(json_encode($responce);
+            $responce[$i] = $row;
+
+            $i++;
+
+        };
+
+        exit(json_encode($responce));
 
     } else
     if($request == 'getUserData'){
@@ -66,13 +70,13 @@
 
         }
 
-        $result = mysqli_query($link, "SELECT `id`, `name`, `surname`, `mname`, `email`, `number`, `contacts` FROM `users` WHERE id = '{$userId}'")
+        $result = mysqli_query($link, "SELECT `id`, `name`, `surname`, `mname`, `email`, `number`, `contacts` FROM `users` WHERE id = '{$userId}'");
 
-        $row = mysqli_fetch_row($result);
+        $row = mysqli_fetch_assoc($result);
 
         $responce = array_merge($row, $responce);
 
-        exit(json_encode($responce);
+        exit(json_encode($responce));
 
     }
 

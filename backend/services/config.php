@@ -1,4 +1,21 @@
 <?
+
+    header('Content-Type: text/html; charset=UTF-8');
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Headers: *');
+    header('Access-Control-Expose-Headers: *');
+    header('Access-Control-Allow-Credentials: true');
+    
+    if(!empty($_POST['COOKIES'])){
+
+        session_id($_POST['COOKIES']);
+
+    }
+
+    session_start();
+
+    $responce['cookie'] = session_id();
+
     function generateRandomString($length = 32) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -8,6 +25,8 @@
         }
         return $randomString;
     }
+
+
     $link = mysqli_connect("localhost","046900853_ha","34581076","9142767578_hackathon");
 
     if (mysqli_connect_errno()) {
