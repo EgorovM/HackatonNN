@@ -8,7 +8,7 @@
 	    <link rel="stylesheet" href="css/bootstrap.min.css">
 	    <link rel="stylesheet" href="css/style.css">
 
-	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	    <script src="js/bm.js"></script>
 	    <script src="js/core.js"></script>
@@ -22,7 +22,7 @@
 	    		$('body').css({"opacity": s})
 	    		s += 0.035;
 			}, 50);
-			
+
 	    	$(document).ready(function(){
 	    		setTimeout(function() {
 					clearInterval(timerId);
@@ -30,7 +30,7 @@
 					$(".data").show("slow");
 				}, 1900);
 	    	});
-	    	
+
 	    </script>
 
 	</head>
@@ -40,38 +40,77 @@
 			<div class = "container">
 				<img src = "img/logo.png">
 
-				<p> 
+				<p>
 					Управляй <br>
 					расходами дома <br>
-					в один клик </p>
+					в один клик
+				</p>
 			</div>
 		</section>
 
 		<section class = "data">
-			<form action="." method="post">
-				<div class = "data-input">
-					<input type="text" placeholder="Лицевые счёта">
-				</div>
-				<div class = "data-input">
-					<input type="text" placeholder="Пароль">
-				</div>
+			<div class = "data-input">
+				<input id="login" type="text" placeholder="Лицевые счёта">
+			</div>
+			<div class = "data-input">
+				<input id="pass" type="password" placeholder="Пароль">
+			</div>
 
-				<div class = "data-submit">
-					<input type="submit" value ="Далее">
-				</div>
-			</form>
+			<div class = "data-submit">
+				<input type="submit" value ="Далее">
+			</div>
 		</section>
 
 
 		<script type="text/javascript">
-			$('body').css({height: $(window).height()});
-		</script>
 
-		<script type="text/javascript">
-				$('p').on('click',function(){
-					$('p').css("opacity":0);
-					$('data').css("display":"block");
+			$('body').css({
+
+				height: $(window).height()
+
+			});
+
+			$('.data-submit input').on('click',function(){
+
+				$.ajax({
+					url: 'http://9142767578.myjino.ru/backend/login.php',
+					type: "POST",
+					data: {
+
+						'login': $('#login').val(),
+						'password': $('#pass').val(),
+						'COOKIES' : localStorage.getItem('PHPSESSID')
+
+					},
+					success: function(e){
+
+						data = JSON.parse(e);
+						localStorage.setItem('PHPSESSID', data['cookie']);
+						console.log(data['text']);
+						$.ajax({
+							url: 'http://9142767578.myjino.ru/backend/getData.php',
+							type: "POST",
+							data: {
+
+								'request' : 'getPersonalSpent',
+								'COOKIES' : localStorage.getItem('PHPSESSID')
+
+							},
+							success: function(e){
+
+								data = JSON.parse(e);
+								localStorage.setItem('PHPSESSID', data['cookie']);
+								console.log(data['text']);
+
+							}
+						});
+
+					}
 				});
+
+			});
+
+
 		</script>
 
 	</body>
