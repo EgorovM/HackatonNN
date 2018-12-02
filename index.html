@@ -8,10 +8,15 @@
 	    <link rel="stylesheet" href="css/bootstrap.min.css">
 	    <link rel="stylesheet" href="css/style.css">
 	    <link rel="stylesheet" href="css/cm.css">
+	    <link rel="stylesheet" href="css/bslider.css">
 
 	    <script src="js/jquery.js"></script>
 	    <script src="js/popper.js"></script>
 	    <script src="js/bm.js"></script>
+	    <script src="js/core.js"></script>
+	    <script src="js/cm.js"></script>
+	    <script src="js/bslider.js"></script>
+	    
 	    <script>
 
 			document.write('<meta name="viewport" content="">');
@@ -252,6 +257,7 @@
 
 				<div class="pay" style="display: none">
 					<div class="boxes">
+						<br>
 						<div style="margin-left: 50px; margin-right: 50px">
 							<h1 style="color:#F76B1C">4883 <font style="font-size: 1.5rem">рублей к оплате за прошедший месяц</font></h1>
 							<div class = "message">
@@ -466,6 +472,12 @@
 				height: $(window).height()
 
 			});
+
+			$("#ex6").slider();
+			$("#ex6").on("slide", function(slideEvt) {
+				$("#ex6SliderVal").text(slideEvt.value);
+			});
+
 
 		</script>
 	</body>
