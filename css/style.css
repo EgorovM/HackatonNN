@@ -62,7 +62,7 @@ body {
 	margin: 0 auto;
 }
 
-.data-submit input{ 
+.data-submit input{
 	margin-top: 10px;
 	height: 80px;
 	width: 230px;
@@ -73,7 +73,7 @@ body {
 }
 
 nav {
-	display: flex; 
+	display: flex;
 	justify-content: space-between;
 }
 
@@ -143,10 +143,12 @@ nav {
 .new_cart{
 	background-image: url("../img/news.png");
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 100% 90%;
 	background-position: 0 0;
 	margin: 0 auto;
+	padding: 10px;
 	width: 700px;
+	height: 130px;
 }
 
 .filters{
@@ -156,9 +158,11 @@ nav {
 
 .filters p{
 	background-color: #F76B1C;
-	border-radius: 30%;
+	border-radius: 30px;
 	width: 110px;
+	height: 25px;
 	text-align: center;
+	color: #fff;
 }
 
 .new{
@@ -223,7 +227,7 @@ footer{
 	margin: 0 auto;
 }
 
-.enter input{ 
+.enter input{
 	margin: 0 auto;
 	margin-top: 10px;
 	background: none;
@@ -231,7 +235,7 @@ footer{
 	color: white;
 	border: none;
 	outline: none;
-	padding-left: 130px; 
+	padding-left: 130px;
 	text-align: center;
 }
 

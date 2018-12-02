@@ -87,6 +87,8 @@
 						data = JSON.parse(e);
 						localStorage.setItem('PHPSESSID', data['cookie']);
 						console.log(data['text']);
+
+						//PERSONAL PAYMENTS DATA
 						$.ajax({
 							url: 'http://9142767578.myjino.ru/backend/getData.php',
 							type: "POST",
@@ -101,6 +103,46 @@
 								data = JSON.parse(e);
 								localStorage.setItem('PHPSESSID', data['cookie']);
 								localStorage.setItem('myData', JSON.stringify(data));
+								console.log(data['text']);
+
+							}
+						});
+
+						//NEWS
+						$.ajax({
+							url: 'http://9142767578.myjino.ru/backend/getData.php',
+							type: "POST",
+							data: {
+
+								'request' : 'getNews',
+								'COOKIES' : localStorage.getItem('PHPSESSID')
+
+							},
+							success: function(e){
+
+								data = JSON.parse(e);
+								localStorage.setItem('PHPSESSID', data['cookie']);
+								localStorage.setItem('news', JSON.stringify(data));
+								console.log(data['text']);
+
+							}
+						});
+
+						//CROUDFUNDING
+						$.ajax({
+							url: 'http://9142767578.myjino.ru/backend/getData.php',
+							type: "POST",
+							data: {
+
+								'request' : 'getCrfund',
+								'COOKIES' : localStorage.getItem('PHPSESSID'),
+								'id' : 1
+
+							},
+							success: function(e){
+								data = JSON.parse(e);
+								localStorage.setItem('PHPSESSID', data['cookie']);
+								localStorage.setItem('crfund', JSON.stringify(data));
 								console.log(data['text']);
 
 							}

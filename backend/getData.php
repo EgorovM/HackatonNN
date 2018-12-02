@@ -98,9 +98,11 @@
     } else
     if($request == 'getCrfund'){
 
+        $id = $_POST['id'];
+
         $result = mysqli_query($link, "SELECT * FROM `crfund` WHERE id = '{$id}'");
 
-        $row = mysqli_fetch_assoc($result)
+        $row = mysqli_fetch_assoc($result);
 
         $responce = array_merge($row, $responce);
 
