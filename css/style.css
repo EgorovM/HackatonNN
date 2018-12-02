@@ -278,3 +278,41 @@ footer{
 .boxes img{
 	height: 118px;
 }
+
+.message{
+	border-radius: 0 20px 20px 20px;
+	background-color: rgb(247,107,28);
+	color: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+}
+
+.service_price{
+	padding: 4px 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn{
+	display: flex;
+	justify-content: center;
+}
+
+.pay_btn{
+	background-color: rgb(247,107,28);
+	border-radius: 12px;
+	width: 50%;
+	border: none;
+	text-decoration: none;
+	color: white;
+}
+
+.boxes h3{
+	text-align: center;
+}
+#RC .slider-handle {
+	background: red;
+}
+
+#RC .slider-selection {
+	background: #FF8282;
+}
