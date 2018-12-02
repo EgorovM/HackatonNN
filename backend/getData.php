@@ -79,6 +79,7 @@
         exit(json_encode($responce));
 
     } else
+    if($request == 'getNews'){
 
         $result = mysqli_query($link, "SELECT * FROM `news` WHERE 1");
 
