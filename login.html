@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="fixed">
 	<head>
@@ -6,15 +7,11 @@
 	    <title></title>
 	    <link rel="stylesheet" href="css/bootstrap.min.css">
 	    <link rel="stylesheet" href="css/style.css">
-	    <link rel="stylesheet" href="css/cm.css">
 
-	    <script src="js/jquery.js"></script>
-	    <script src="js/popper.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	    <script src="js/bm.js"></script>
 	    <script src="js/core.js"></script>
-	    <script src="js/cm.js"></script>
-
-	    <style type="text/css"></style>
 
 
 	    <script type="text/javascript">
@@ -90,33 +87,24 @@
 						data = JSON.parse(e);
 						localStorage.setItem('PHPSESSID', data['cookie']);
 						console.log(data['text']);
-						if(data['error'] == 0){
+						$.ajax({
+							url: 'http://9142767578.myjino.ru/backend/getData.php',
+							type: "POST",
+							data: {
 
-							$.ajax({
-								url: 'http://9142767578.myjino.ru/backend/getData.php',
-								type: "POST",
-								data: {
+								'request' : 'getPersonalSpent',
+								'COOKIES' : localStorage.getItem('PHPSESSID')
 
-									'request' : 'getPersonalSpent',
-									'COOKIES' : localStorage.getItem('PHPSESSID')
+							},
+							success: function(e){
 
-								},
-								success: function(e){
+								data = JSON.parse(e);
+								localStorage.setItem('PHPSESSID', data['cookie']);
+								localStorage.setItem('myData', JSON.stringify(data));
+								console.log(data['text']);
 
-									data = JSON.parse(e);
-									localStorage.setItem('PHPSESSID', data['cookie']);
-									localStorage.setItem('myData', JSON.stringify(data));
-									console.log(data['text']);
-
-									if(data['error'] == 0){
-										
-										$(location).attr('href','index.html');
-
-									}
-								}
-							});
-
-						}
+							}
+						});
 
 					}
 				});

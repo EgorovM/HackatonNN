@@ -78,6 +78,34 @@
 
         exit(json_encode($responce));
 
+    } else
+    if($request == 'getNews'){
+
+        $result = mysqli_query($link, "SELECT * FROM `news` WHERE 1");
+
+        $i = 0;
+
+        while($row = mysqli_fetch_assoc($result)){
+
+            $responce[$i] = $row;
+
+            $i++;
+
+        };
+
+        exit(json_encode($responce));
+
+    } else
+    if($request == 'getCrfund'){
+
+        $result = mysqli_query($link, "SELECT * FROM `crfund` WHERE id = '{$id}'");
+
+        $row = mysqli_fetch_assoc($result)
+
+        $responce = array_merge($row, $responce);
+
+        exit(json_encode($responce));
+
     }
 
 
