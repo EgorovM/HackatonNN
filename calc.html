@@ -1,0 +1,161 @@
+
+<!doctype html>
+<html class="fixed">
+	<head>
+		
+	    <meta charset="UTF-8">
+	    <title></title>
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
+	    <link rel="stylesheet" href="css/style.css">
+	    <link rel="stylesheet" href="css/cm.css">
+	    <link rel="stylesheet" href="css/bslider.css">
+
+	    <script src="js/jquery.js"></script>
+	    <script src="js/popper.js"></script>
+	    <script src="js/bm.js"></script>
+	    <script src="js/core.js"></script>
+	    <script src="js/cm.js"></script>
+	    <script src="js/bslider.js"></script>
+	    
+	    <style type="text/css">
+	    	header{
+	    		margin-left: 50px;
+	    		margin-right: 50px;
+	    	}
+	    	main{
+	    		margin-left: 50px;
+	    		margin-right: 50px;
+	    	}
+	    </style>
+	    
+	</head>
+
+	<body>
+		<div class = "wrapper">
+		    <header>
+		    	<nav role = "navigate">
+		    		<div class = "nav-left">
+		    			<img src = "img/menu.png">
+		    		</div>
+
+		    		<div class = "nav-logo">
+		    			<img src = "img/logo.png" alt = "logo">
+		    		</div>
+
+		    		<div class = "nav-right">
+		    			 <img src = "img/notification.png">
+		    		</div>
+		    	</nav>
+
+		    </header>
+		    <br>
+		    <br>
+		    <main div class = "content">
+	    		<div class="boxes">
+	    			<div style="margin-left: 50px; margin-right: 50px">
+						<h3>Интервал времени</h3>
+
+					  	<p><b class = "first">Январь</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="1" data-slider-max="12" data-slider-step="1" data-slider-value="[0,12]" style="width: 100%"/> <b class="second">Декабрь</b></p>
+				
+						<h3>Количество потребителей</h3>
+						<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id = "deal" value="0">
+						<br>
+						<h3>Активные часы</h3>
+
+						<div class="row">
+							<div class="col">
+								<input type="text" class="form-control" placeholder="Днем" id = "day" value="0">
+							</div>
+							<div class="col">
+								<input type="text" class="form-control" placeholder="Ночью" id = "night" value="0">
+							</div>
+						</div>
+
+						<br>
+						<h3>Доп. оборудования</h3>
+						  
+						<div class="input-group mb-3">
+							<select class="custom-select" id="inputGroupSelect02">
+								<option selected>Выбор...</option>
+								<option value="1">Кондиционер</option>
+								<option value="2">Ночник</option>
+								<option value="3">Майнинг система</option>
+								<option value="4">It парк</option>
+							</select>
+							<div class="input-group-append">
+								<button class="btn btn-outline-secondary" type="button" id = "add">Добавить</button>
+							</div>
+						</div>
+
+						<ul class="list-group">
+						</ul>
+					<br>
+
+					<div class = "btn"><button id = "count" class="pay_btn"> Рассчитать </button></div>
+					<br>
+				</div>
+		    </main>
+
+
+		    <footer class = "footer">
+	    		<div class = "footer-menu">
+	    			<div class = "footer-card">
+	    				<img src = "img/pays.png" alt = "pays" class = "pays">
+	    				<span>Платежи</span>
+	    			</div>
+
+	    			<div class = "footer-card">
+	    				<img src = "img/home.png" alt = "home" class = "home">
+	    				<span>Дом</span>
+	    			</div>
+
+	    			<div class = "footer-card">
+	    				<img src = "img/call.png" alt = "call" class = "call">
+	    				<span>Вызов</span>
+	    			</div>
+	    		</div>
+	    	</footer>
+		</div>
+
+
+		<script type="text/javascript">
+
+			$('body').css({
+
+				height: $(window).height()
+
+			});
+			var Change = function(){
+				var array = new Array({"1":"Январь","2":"Февраль","3":"Март","4":"Апрель","5":"Май", "6":"Июнь","7":"Июль","8":"Август","9":"Сентябрь","10":"Октябрь","11":"Ноябрь","12":"Декабрь"});
+				var first_value = $("#ex2").attr("data-value").split(",")[0];
+				var second_value = $("#ex2").attr("data-value").split(",")[1];
+
+				$(".first").text(array[0][first_value]);
+				$(".second").text(array[0][second_value]);
+				$(".slider-selection").css();
+			}
+
+			$("#ex2").slider({}).on('slide', Change).data('slider');
+			var ar = new Array({"1":"Кондиционер", "2": "Ночник", "3": "Майнинг система", "4": "Itpark"});
+
+			$("#add").on("click",function(){
+				$(".list-group").append('<li class="list-group-item">' + ar[0][$(".custom-select").val()] + '</li>');
+			});
+
+			$("#count").on("click",function(){
+				var first_value  = $("#ex2").attr("data-value").split(",")[0];
+				var second_value = $("#ex2").attr("data-value").split(",")[1];
+				var deal_zn      = parseInt($("#deal").val(),10);
+				var day_zn       = parseInt($("#day").val(),10);
+				var night_zn     = parseInt($("#night").val(),10);
+
+				var s = (day_zn * 5 + night_zn * 3) * 30 * deal_zn * (second_value - first_value);
+				alert("Общая стоимость " + s + " р");
+				
+
+			});
+			
+
+		</script>
+	</body>
+</html>
