@@ -262,14 +262,19 @@ footer{
 
 .boxes{
 	background-color: white;
-	border: 30px;
+	border-radius: 30px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
-
 }
 
 .notification{
-	background-color: white;
-	border-radius: 30px;
-	border-color: #008a77;
-	
+	background-image: url('../img/news.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 0;
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+.boxes img{
+	height: 118px;
 }
