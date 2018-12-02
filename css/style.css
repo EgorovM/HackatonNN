@@ -174,7 +174,7 @@ footer{
 	margin: 0 auto;
 	height: 257px;
 	position: fixed;
-	bottom: 0px;
+	bottom: -60px;
 }
 
 .footer-menu{
