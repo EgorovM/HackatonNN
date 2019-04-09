@@ -20,7 +20,7 @@ body {
 }
 .logo img{
 	margin-bottom: 30px;
-	height: 230px;
+	height: 115px;
 }
 .logo p{
 	font-size: 2rem;
@@ -36,14 +36,14 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: 0 0;
-	height: 130px;
-	width: 550px;
+	height: 65px;
+	width: 275px;
 	margin: 0 auto;
 }
 .data-input input{
 	margin-top: 16px;
-	height: 70px;
-	width: 400px;
+	height: 35px;
+	width: 200px;
 	font-size: 2rem;
 	border: none;
 	outline: none;
@@ -57,15 +57,15 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: 0 0;
-	height: 117px;
-	width: 300px;
+	height: 59px;
+	width: 150px;
 	margin: 0 auto;
 }
 
 .data-submit input{
 	margin-top: 10px;
-	height: 80px;
-	width: 230px;
+	height: 40px;
+	width: 115px;
 	background: none;
 	font-size: 2rem;
 	border: none;
@@ -78,19 +78,19 @@ nav {
 }
 
 .nav-logo img{
-	height: 110px;
+	height: 55px;
 	margin-top: 40px;
 }
 .nav-left{
-	width: 100px;
+	width: 50px;
 }
 .nav-right{
-	width: 100px;
+	width: 50px;
 }
 
 .nav-left img{
 	position: absolute;
-	height: 60px;
+	height: 30px;
 	color: white;
 	top: 72px;
 	left: 75px;
@@ -98,7 +98,7 @@ nav {
 
 .nav-right img{
 	position: absolute;
-	height: 90px;
+	height: 45px;
 	top:58px;
 	right: 75px;
 }
@@ -115,7 +115,7 @@ nav {
 	text-align: center;
 }
 .ct-chart{
-	height: 350px;
+	height: 175px;
 	text-align: center;
 }
 
@@ -134,7 +134,7 @@ nav {
 }
 
 .price_information{
-	width: 700px;
+	width: 350px;
 	margin:0 auto;
 	display: flex;
 	justify-content: space-around;
@@ -147,8 +147,8 @@ nav {
 	background-position: 0 0;
 	margin: 0 auto;
 	padding: 10px;
-	width: 700px;
-	height: 130px;
+	width: 350px;
+	height: 65px;
 }
 
 .filters{
@@ -159,8 +159,8 @@ nav {
 .filters p{
 	background-color: #F76B1C;
 	border-radius: 30px;
-	width: 110px;
-	height: 25px;
+	width: 55px;
+	height: 12px;
 	text-align: center;
 	color: #fff;
 }
@@ -176,7 +176,7 @@ footer{
 	background-size: 100%;
 	background-position: 0 0;
 	margin: 0 auto;
-	height: 257px;
+	height: 130px;
 	position: fixed;
 	bottom: -60px;
 }
@@ -184,13 +184,13 @@ footer{
 .footer-menu{
 	display: flex;
 	justify-content: space-around;
-	width: 1000px;
+	width: 500px;
 	margin:0 auto;
 	padding-top: 80px;
 }
 
 .footer-menu img{
-	height: 60px;
+	height: 30px;
 }
 
 .footer-card{
@@ -209,7 +209,7 @@ footer{
 	background-size: 100%;
 	background-position: 0 0;
 	width: 100%;
-	height: 360px;
+	height: 180px;
 	margin: 0 auto;
 }
 
@@ -222,8 +222,8 @@ footer{
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: 0 0;
-	width: 500px;
-	height: 60px;
+	width: 250px;
+	height: 30px;
 	margin: 0 auto;
 }
 
@@ -250,7 +250,7 @@ footer{
 	background-size: 100%;
 	background-position: 0 0;
 	width: 100%;
-	height: 300px;
+	height: 150px;
 	text-align: center;
 	color: white;
 }
@@ -323,18 +323,18 @@ footer{
 
 #inputGroup-sizing-sm{
 	background-color: rgb(247,107,28);
-	width: 236px;
+	width: 120px;
 	color: white;
 }
 
 #inputGroupSelect01{
 	background-color: rgb(247,107,28);
-	width: 236px;
+	width: 120px;
 	color: white;
 }
 
 #add{
 	background-color: rgb(247,107,28);
-	width: 236px;
+	width: 120px;
 	color: white;
 }

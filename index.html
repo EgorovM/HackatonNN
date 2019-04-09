@@ -1,9 +1,10 @@
 
 <!DOCTYPE HTML>
-<html class="fixed">
+<html>
 	<head>
 
 	    <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 	    <title></title>
 	    <link rel="stylesheet" href="css/bootstrap.min.css">
 	    <link rel="stylesheet" href="css/style.css">
@@ -107,22 +108,47 @@
 				</section>
 		    </main>
 
-			<div class="news" style="display: none">
-				<main div class = "content">
-			    	<div class = "new_card">
-			    		<div class = "new_title">
-			    			<h2> График плановых работ <br>энергетиков на 30 апреля </h2>
-			    		</div>
-			    		<br>
-			    		<div class = "new_body">
-			    			<p>
-							</p>
+			<main style="display: none">
+		    	<div class = "boxes">
+		    		<div class = "new_title">
+		    			<h2> График плановых работ <br>энергетиков на 30 апреля </h2>
+		    		</div>
+		    		<br>
+		    		<div class = "new_body">
+		    			<p>Для обеспечения потребителей Республики Саха (Якутия) качественной и бесперебойной электроэнергией, специалисты Центральных и Западных электрических сетей ежедневно ведут работы по подключению новых абонентов к электрическим сетям и последовательные ремонтные работы на объектах электросетевого хозяйства, которые невозможны без введений плановых временных ограничений электроснабжения.
 
-			    		</div>
-			    	</div>
-			    </main>
-			</div>
+						Для удобства наших потребителей основная часть ремонтных работ проводится в дневное время рабочих будней, когда существенно снижено потребление электроэнергии. Временные ограничения электроснабжения 28 ноября в г. Якутске и ряде районов будут проводиться по следующему графику:
 
+						г. Якутск:
+
+						09:00-12:00 – Покровский тракт 10 км – работы по технологическому присоединению потребителей;
+
+						09:00-12:00 – Якова Потапова 27/1, Лермонтова 26 – работы в охранной зоне энергообъектов;
+
+						09:00-12:00 – Билибина 42/4 – пасынковка опоры;
+
+						09:00-17:00 –             1-я Пристанская, 2-я Пристанская (частично), 50 лет Советской Армии 86/3-106 – капитальный ремонт ВЛ;
+
+						09:00-17:00 – Стерхмкр-н, Сергеляхское поле (частично), Набережная 89, Ушакова 6 – работы по заявкам Якутского отделения Энергосбыта;
+
+						14:00-17:00 – Лермонтова 26, Малая Марха (частично) – работы в охранной зоне энергообъектов.
+
+						Мирнинский район:
+
+						10:00-12:00 – г. Мирный (Вилюйская, Иреляхская, Транспортная, Экспедиционная, Мухтуйская, Таежная, Ленская, Нагорная, Набережная, Лесная, Интернациональная, Звездная, Целинная, Фабричная, теплопункт-Нижняя школа, СОШ №8, теплопункт МУП «Коммунальщик») – испытание кабельной линии;
+
+						14:00-17:00 – г. Мирный (1-й Пионерский пер., Первомайская, Фрунзе, Индустриальная) – установка шкафа управления на КТП.
+
+						Усть-Алданский район:
+
+						14:00-17:00 – с. Сырдах, с. Арылах, с. Бейдингэ, с. Окоемовка, с. Сасылыкан, с. Тумул, с. Ары-Тит, с. Соттинцы, с. Хоногор. – перевод питания.
+
+						В графике возможны изменения.
+						</p>
+						<br>
+		    		</div>
+		    	</div>
+			</main>
 			<main>
 				<div class="notifications" style="display: none">
 					<div class="boxes">
@@ -222,7 +248,7 @@
 				    			<br>
 				    		</div>
 				    		<br>
-				    		<div class = "boxes">
+				    		<div class = "boxes bot">
 				    			<br>
 				    			<img src = "img/speech-bubble.png">
 								<br>
@@ -308,6 +334,16 @@
 						<div class = "btn"><button class = "pay_btn" style=" height: 38px; padding: 1px; font-size: 1.6rem;"> Оплатить в рассрочку </button></div>
 						<br>
 					</div>
+
+					</br>
+
+					<div class = "boxes" style="text-align: center; height: 125px;">
+						<br>
+						<button style="font-size: 3rem; border: none; color: rgb(247,107,28); background: white; outline: none;"> Сканировать счетчкики </button>
+						<br>
+						<br>
+						<br>
+					</div>
 				</div>
 			</main>
 
@@ -333,6 +369,24 @@
 
 		<script>
 
+
+			//window.scrollTo(0,1);
+			function toggleFullScreen() {
+			  var doc = window.document;
+			  var docEl = doc.documentElement;
+
+			  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen;
+			  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen;
+
+			  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement) {
+			    requestFullScreen.call(docEl);
+			  }
+			  else {
+			    cancelFullScreen.call(doc);
+			  }
+			}
+
+			//toggleFullScreen();
 
 
 
@@ -398,6 +452,22 @@
 				goNotif();
 
 			})
+			$('.row .boxes').on('click',function(){
+
+				alert('Вы на очереди к специалисту!');
+
+			})
+
+
+			$('.row .bot').on('click',function(){
+
+				document.location.replace("https://t.me/energy_advice_bot");
+
+			})
+
+
+
+
 
 
 
@@ -475,11 +545,12 @@
 
 	    <script type="text/javascript">
 
-			$('body').css({
 
-				height: $(window).height()
+					$('body').css({
 
-			});
+						'height': $(document).height()  + 'px'
+
+					});
 
 			$("#ex6").slider();
 			$("#ex6").on("slide", function(slideEvt) {
